@@ -50,11 +50,15 @@ Bootstrap(app)
 
 servicesDomain = "" if (os.environ.get("SERVICES_DOMAIN") == None) else "." + os.environ.get("SERVICES_DOMAIN")
 
+requests_log.info("servicesDomain is %s", servicesDomain)
+
 details = {
     "name" : "http://details{0}:9080".format(servicesDomain),
     "endpoint" : "details",
     "children" : []
 }
+
+requests_log.info("details.name is %s", details['name'])
 
 ratings = {
     "name" : "http://ratings{0}:9080".format(servicesDomain),
